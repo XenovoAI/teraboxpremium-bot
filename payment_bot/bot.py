@@ -295,13 +295,14 @@ async def run_payment_bot():
 
     application.add_handler(CommandHandler("start", start_command))
     application.add_handler(CallbackQueryHandler(handle_callback_query))
+    async def start(update, context):
+        await update.message.reply_text("Bot started!")
+
+    application.add_handler(CommandHandler("start", start))
+    
 
     application.add_error_handler(error_handler)
 
-    await application.initialize()
-    await application.start()
-    print("✅ Main Bot running...")
-    await application.start_polling()
-    await application.idle()
-    await application.stop()
-    await application.shutdown()
+    await application.initialize()  # Initialize the app
+    await application.run_polling()  # Start polling for updates
+    print("✅ Payment Bot running...")
