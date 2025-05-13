@@ -291,7 +291,11 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 
 async def run_payment_bot():
     application = Application.builder().token(PAYMENT_BOT_TOKEN).build()
-    # Add handlers...
+    application.add_handler(CommandHandler("start", start_command))
+    application.add_handler(CallbackQueryHandler(handle_callback_query))
+    
+    # Add error handler
+    application.add_error_handler(error_handler)
     await application.initialize()
     await application.start()
     await application.updater.start_polling()
