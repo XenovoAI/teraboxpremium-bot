@@ -2,12 +2,9 @@ import os
 import logging
 import threading
 from dotenv import load_dotenv
+import asyncio
 
-# Import bot runners
-from main_bot.bot import run_main_bot
-from payment_bot.bot import run_payment_bot
-
-# Load environment variables
+# Load environment variables from .env
 load_dotenv()
 
 # Configure logging
@@ -17,26 +14,35 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Import bot starters
+from main_bot.bot import run_main_bot
+from payment_bot.bot import run_payment_bot
+
+def start_bot(bot_runner, bot_name: str):
+    """Wrapper to start a bot in a new thread with its own event loop."""
+    try:
+        logger.info(f"🚀 Starting {bot_name}...")
+        asyncio.run(bot_runner())
+    except Exception as e:
+        logger.error(f"❌ Failed to start {bot_name}: {e}")
+
 def main():
     """Main entry point for the application"""
-    logger.info("Starting Terabox Premium Bot System")
-    
+    logger.info("🔄 Initializing Terabox Premium Bot System...")
+
     # Create threads for each bot
-    main_bot_thread = threading.Thread(target=run_main_bot, name="MainBot")
-    payment_bot_thread = threading.Thread(target=run_payment_bot, name="PaymentBot")
-    
+    main_bot_thread = threading.Thread(target=start_bot, args=(run_main_bot, "MainBot"), name="MainBot")
+    payment_bot_thread = threading.Thread(target=start_bot, args=(run_payment_bot, "PaymentBot"), name="PaymentBot")
+
     # Start both bots
-    logger.info("Starting Main Bot")
     main_bot_thread.start()
-    
-    logger.info("Starting Payment Bot")
     payment_bot_thread.start()
-    
-    # Wait for both threads to complete (they won't unless there's an error)
+
+    # Keep the main thread alive
     main_bot_thread.join()
     payment_bot_thread.join()
-    
-    logger.info("Both bots have stopped. Exiting.")
+
+    logger.info("🛑 Both bots have stopped. Exiting.")
 
 if __name__ == "__main__":
     main()
