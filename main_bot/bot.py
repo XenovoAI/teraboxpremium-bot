@@ -247,6 +247,3 @@ def run_main_bot():
     await application.start()
     await application.updater.start_polling()
     await application.updater.idle()
-
-if __name__ == "__main__":
-    run_main_bot()
