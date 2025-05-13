@@ -1,4 +1,5 @@
 # Application constants for Terabox Premium Bot
+
 from typing import Dict, List
 import os
 from dotenv import load_dotenv
@@ -121,6 +122,7 @@ PAYMENT_WELCOME_MESSAGE = (
     "Please select a plan to continue."
 )
 
+# ✅ DO NOT FORMAT THIS MESSAGE YET — it will be formatted at runtime
 PAYMENT_SUCCESS_MESSAGE = (
     "✅ *Payment Successful*\n\n"
     "Thank you for upgrading to Terabox Premium!\n\n"
@@ -128,7 +130,7 @@ PAYMENT_SUCCESS_MESSAGE = (
     "Plan: {plan_name}\n"
     "Valid until: {expiry_date}\n\n"
     "Return to @{main_bot} to enjoy your premium benefits!"
-).format(main_bot=MAIN_BOT_USERNAME)
+)
 
 PAYMENT_CANCELLED_MESSAGE = (
     "❌ *Payment Cancelled*\n\n"
