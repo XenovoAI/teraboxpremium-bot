@@ -26,5 +26,7 @@ async def main():
 if __name__ == "__main__":
     try:
         asyncio.run(main())
+    except RuntimeError as e:
+        logger.error(f"❌ RuntimeError occurred: {e}")
     except Exception as e:
         logger.error(f"❌ Error during bot execution: {e}")
