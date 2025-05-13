@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Bot configuration
-MAIN_BOT_TOKEN = os.getenv("MAIN_BOT_TOKEN")
-PAYMENT_BOT_TOKEN = os.getenv("PAYMENT_BOT_TOKEN")
+MAIN_BOT_TOKEN = os.getenv("MAIN_BOT_TOKEN", "7709377817:AAE-mLnrRuf9r8A7t6WDhcfUo1rPcc1mF1g")
+PAYMENT_BOT_TOKEN = os.getenv("PAYMENT_BOT_TOKEN", "8165168128:AAH_TXUTBxVq4wjbtQO_b0gA76Kp5juRD1Q")
 MAIN_BOT_USERNAME = os.getenv("MAIN_BOT_USERNAME", "terabox_premium_bot")
 PAYMENT_BOT_USERNAME = os.getenv("PAYMENT_BOT_USERNAME", "terabox_payment_bot")
 
