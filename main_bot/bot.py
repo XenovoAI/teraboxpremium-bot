@@ -243,7 +243,4 @@ async def run_main_bot():
     application.add_error_handler(error_handler)
     
     print("✅ Main Bot running...")
-    await application.initialize()
-    await application.start()
-    await application.updater.start_polling()
-    await application.updater.wait()
+    await application.run_polling()
