@@ -245,7 +245,7 @@ async def run_main_bot():
     await application.initialize()
     await application.start()
     print("✅ Main Bot running...")
-    await application.start_polling()
+    await application.run_polling()
     await application.idle()
     await application.stop()
     await application.shutdown()
