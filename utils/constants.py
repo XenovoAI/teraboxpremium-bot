@@ -37,20 +37,7 @@ TERABOX_DOMAINS = [
     "ddl.to/terabox"
 ]
 
-MESSAGES = {
-    "welcome": WELCOME_MESSAGE,
-    "help": HELP_MESSAGE,
-    "free_limit_reached": FREE_LIMIT_REACHED_MESSAGE,
-    "processing": PROCESSING_MESSAGE,
-    "invalid_url": INVALID_URL_MESSAGE,
-    "download_success_template": DOWNLOAD_SUCCESS_TEMPLATE,
-    "download_error": DOWNLOAD_ERROR_MESSAGE,
-    "premium_upgrade": PREMIUM_UPGRADE_MESSAGE,
-    "payment_welcome": PAYMENT_WELCOME_MESSAGE,
-    "payment_success": PAYMENT_SUCCESS_MESSAGE,
-    "payment_cancelled": PAYMENT_CANCELLED_MESSAGE,
-    "payment_error": PAYMENT_ERROR_MESSAGE,
-}
+
 
 # Bot messages
 WELCOME_MESSAGE = (
@@ -159,6 +146,20 @@ PAYMENT_ERROR_MESSAGE = (
     "Please try again or contact support if the issue persists."
 )
 
+MESSAGES = {
+    "welcome": WELCOME_MESSAGE,
+    "help": HELP_MESSAGE,
+    "free_limit_reached": FREE_LIMIT_REACHED_MESSAGE,
+    "processing": PROCESSING_MESSAGE,
+    "invalid_url": INVALID_URL_MESSAGE,
+    "download_success_template": DOWNLOAD_SUCCESS_TEMPLATE,
+    "download_error": DOWNLOAD_ERROR_MESSAGE,
+    "premium_upgrade": PREMIUM_UPGRADE_MESSAGE,
+    "payment_welcome": PAYMENT_WELCOME_MESSAGE,
+    "payment_success": PAYMENT_SUCCESS_MESSAGE,
+    "payment_cancelled": PAYMENT_CANCELLED_MESSAGE,
+    "payment_error": PAYMENT_ERROR_MESSAGE,
+}
 # File size limits (in bytes)
 MAX_FREE_FILE_SIZE = 1024 * 1024 * 1024  # 1 GB
 MAX_PREMIUM_FILE_SIZE = 10 * 1024 * 1024 * 1024  # 10 GB
