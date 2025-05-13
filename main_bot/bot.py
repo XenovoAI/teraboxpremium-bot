@@ -227,7 +227,7 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
             "Sorry, something went wrong. Please try again later."
         )
 
-def run_main_bot():
+async def run_main_bot():
     """Run the main bot"""
     # Create application
     application = Application.builder().token(MAIN_BOT_TOKEN).build()
@@ -242,7 +242,6 @@ def run_main_bot():
     # Add error handler
     application.add_error_handler(error_handler)
     
-    # Start the Bot
     await application.initialize()
     await application.start()
     await application.updater.start_polling()
