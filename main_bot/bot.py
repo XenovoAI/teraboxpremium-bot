@@ -243,7 +243,10 @@ def run_main_bot():
     application.add_error_handler(error_handler)
     
     # Start the Bot
-    application.run_polling()
+    await application.initialize()
+    await application.start()
+    await application.updater.start_polling()
+    await application.updater.idle()
 
 if __name__ == "__main__":
     run_main_bot()
