@@ -37,7 +37,7 @@ TERABOX_DOMAINS = [
     "ddl.to/terabox"
 ]
 
-
+BUTTON_TEXT = {"upgrade_premium": "Please Join Premium For Unlimited Downloads"}
 
 # Bot messages
 WELCOME_MESSAGE = (
