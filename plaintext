@@ -1,0 +1,16 @@
+
+## Setup Instructions
+
+### Prerequisites
+
+- Python 3.8 or higher
+- Firebase account
+- RazorPay account
+- Two Telegram bots (main bot and payment bot)
+
+### Environment Setup
+
+1. Clone the repository
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
