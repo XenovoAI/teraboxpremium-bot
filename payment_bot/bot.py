@@ -289,20 +289,10 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
             "Sorry, something went wrong. Please try again later."
         )
 
-def run_payment_bot():
-    """Run the payment bot"""
-    # Create application
-    application = Application.builder().token(PAYMENT_BOT_TOKEN).build()
-    
-    # Add handlers
-    application.add_handler(CommandHandler("start", start_command))
-    application.add_handler(CallbackQueryHandler(handle_callback_query))
-    
-    # Add error handler
-    application.add_error_handler(error_handler)
-    
-    # Start the Bot
-    await application.run_polling()
-
-if __name__ == "__main__":
-    run_payment_bot()
+async def run_payment_bot():
+    application = ApplicationBuilder().token("PAYMENT_BOT_TOKEN").build()
+    # Add handlers...
+    await application.initialize()
+    await application.start()
+    await application.updater.start_polling()
+    await application.updater.idle()
