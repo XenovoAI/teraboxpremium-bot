@@ -302,7 +302,7 @@ def run_payment_bot():
     application.add_error_handler(error_handler)
     
     # Start the Bot
-    application.run_polling()
+    await application.run_polling()
 
 if __name__ == "__main__":
     run_payment_bot()
