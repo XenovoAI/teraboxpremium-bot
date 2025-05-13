@@ -290,7 +290,7 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         )
 
 async def run_payment_bot():
-    application = ApplicationBuilder().token("PAYMENT_BOT_TOKEN").build()
+    application = Application.builder().token(PAYMENT_BOT_TOKEN).build()
     # Add handlers...
     await application.initialize()
     await application.start()
