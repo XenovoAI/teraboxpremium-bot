@@ -1,4 +1,5 @@
 import os
+import asyncio
 import logging
 from typing import Dict, Any, Optional, List, Tuple
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, LabeledPrice
@@ -300,3 +301,5 @@ async def run_payment_bot():
     await application.start()
     await application.updater.start_polling()
     await application.updater.idle()
+if __name__ == "__main__":
+    asyncio.run(run_payment_bot())
