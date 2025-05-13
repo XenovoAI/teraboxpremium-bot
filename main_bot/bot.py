@@ -10,7 +10,7 @@ from main_bot.url_detector import extract_terabox_urls, is_terabox_url, normaliz
 from main_bot.download import TeraboxDownloader
 from main_bot.premium import is_user_premium, get_premium_status_message, get_premium_plans
 from firebase.user import get_user, create_user, increment_free_uses, get_remaining_free_uses
-from utils.constants import MAIN_BOT_TOKEN, PAYMENT_BOT_USERNAME, MESSAGES, BUTTON_TEXT, MAX_FREE_FILE_SIZE, MAX_FILE_SIZE_PREMIUM
+from utils.constants import MAIN_BOT_TOKEN, PAYMENT_BOT_USERNAME, MESSAGES, BUTTON_TEXT, MAX_FREE_FILE_SIZE, MAX_PREMIUM_FILE_SIZE
 
 # Load environment variables
 load_dotenv()
