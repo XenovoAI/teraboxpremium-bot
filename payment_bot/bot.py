@@ -298,7 +298,8 @@ async def run_payment_bot():
 
     application.add_error_handler(error_handler)
 
-    await application.initialize()
-    await application.start()
-    await application.updater.start_polling()
-    await application.updater.idle()
+    print("✅ Payment Bot running...")
+    await app.initialize()
+    await app.start()
+    await app.updater.start_polling()
+    await app.updater.wait()
