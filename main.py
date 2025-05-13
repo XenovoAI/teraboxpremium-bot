@@ -28,8 +28,14 @@ async def main():
         logger.error(f"❌ An error occurred while running bots: {e}")
 
 if __name__ == "__main__":
-    # Check if there is already a running event loop
-    if not asyncio.get_event_loop().is_running():
-        asyncio.run(main())
-    else:
-        logger.error("❌ Event loop is already running!")
+    try:
+        # Check if there's already a running event loop and run the main function accordingly
+        loop = asyncio.get_event_loop()
+        if loop.is_running():
+            logger.error("❌ Event loop is already running!")
+        else:
+            asyncio.run(main())
+    except RuntimeError:
+        # For Python >= 3.10
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(main())
